@@ -1,38 +1,35 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 
-export default function SplashScreen({ navigation }) {
+const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Home'); // Navigates to Home screen
-    }, 3000); // 3 seconds
+      navigation.replace('Home');
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/logo.png')} style={styles.logo} />
-      <Text style={styles.title}>Comet Chat</Text>
+      <Text style={styles.title}>Welcome to ChatApp</Text>
+      <ActivityIndicator size="large" color="#ffffff" />
     </View>
   );
-}
+};
+
+export default SplashScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#151515',
+    backgroundColor: '#121212',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logo: {
-    width: 120,
-    height: 120,
-    marginBottom: 20,
-  },
   title: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    fontSize: 22,
     color: '#fff',
+    marginBottom: 20,
   },
 });

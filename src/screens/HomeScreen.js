@@ -1,23 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { CometChatConversations } from '@cometchat/chat-uikit-react-native';
 
-export default function HomeScreen() {
+const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>This is the Home Screen</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <CometChatConversations />
+    </SafeAreaView>
   );
-}
+};
+
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  text: {
-    fontSize: 22,
-    color: '#333',
   },
 });
